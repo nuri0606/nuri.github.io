@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WeatherWise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1a2830",
+              "text-light": "#101c22",
+              "text-dark": "#f6f7f8",
+              "subtle-light": "#6b7280",
+              "subtle-dark": "#9ca3af",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+            },
+            animation: {
+              fadeIn: 'fadeIn 1s ease-in-out',
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark animate-fadeIn">
+<div class="flex flex-col min-h-screen">
+<header class="bg-surface-light dark:bg-surface-dark/50 backdrop-blur-sm sticky top-0 z-10">
+<nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center">
+<a class="flex items-center gap-3 text-2xl font-bold text-primary" href="#">
+<span class="material-symbols-outlined text-4xl">
+                                cloud
+                            </span>
+<span>WeatherWise</span>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-6">
+<a class="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Today</a>
+<a class="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Forecast</a>
+<a class="text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Maps</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-subtle-light dark:text-subtle-dark">
+                                settings
+                            </span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbTaM09F6zuZPYQkNe1bksF7bXFK-FgNBT6FZyiroq6ty5c3o6dGvtHyH-x1S6r2r2cYYiKt_-NlF_NE-7jVfe_kewnQ3vVm4tlqv5uMarw-h99F32BKO7QHrZ9To3tmffZ1DepbBj7iaZg8vdwIV5T0JbEWIK5FVZObtzelua0HLkmcui-KdInDs53OgCKk7jvKneDO6dTmh1oxsBCGAgOu6ucALfx8fsNKyWqrd2YskzyyWuOwCYno1Ze8PPAP6hpzwgDF70QI0");'></div>
+</div>
+</div>
+</nav>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="text-center max-w-2xl mx-auto">
+<h1 class="text-4xl md:text-5xl font-bold mb-4">Find Your Local Forecast</h1>
+<p class="text-lg text-subtle-light dark:text-subtle-dark mb-8">Search by city to get the latest weather updates.</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-subtle-light dark:text-subtle-dark">
+                        search
+                    </span>
+<input class="w-full h-14 pl-12 pr-4 bg-surface-light dark:bg-surface-dark border border-primary/20 focus:ring-2 focus:ring-primary focus:outline-none rounded-lg transition-shadow" placeholder="Search for a city..." type="text"/>
+</div>
+</div>
+<div class="mt-16">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300">
+<div class="relative">
+<img alt="Sunny day in San Francisco" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ_XshXpHawSkSJ0gLwnqhabo7u8_3qDubzAdT5wvOanHlMQSikraM73iYQq0WDmyTsZ6LZAisCqFHTVX7dCei21Am78tfQVuPcd7TW4t0U-h7I0Xe7DRDbWR-luJKSC5sNJrSm_vw9gC4MhIeM2LUQ2U0h5nSIqajplf7iDvkNBkyeyu_ohfGDCzQMmlnR2YEeTKxmvGWNCTCcjOfoUX7GGfEIMuv3jGm1eW203zwDb1uB_Pog00QpAGI0y_R8DjcG1RLHGJc-g0"/>
+<div class="absolute top-4 right-4 bg-primary/80 text-white p-4 rounded-full">
+<span class="material-symbols-outlined text-4xl">
+                                    light_mode
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">San Francisco</h3>
+<p class="text-subtle-light dark:text-subtle-dark mb-4">Sunny</p>
+<p class="text-4xl font-bold text-primary">22°C</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300">
+<div class="relative">
+<img alt="Cloudy day in New York" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL-A9qUVhjvdlJLrhEMxs_LSB5RdcItDcfAmvDtBu-QJ0ACG_dwFgd_-OXVZ4qLpyxuo8grz0x_ENcqT7l9DMjFFNjKxcKkmn3t8f2DBcJXKWeL3BXckE99Yzxj5mL2_4TGIVklW_LPf5HWoptHPES_Kw-CqIG1h1VcnbWrYXMw8v4_yQps9x1pfjV6ZMEhFvk8J0GKyTK83qJwY68eiKO69cpOCjcXtieOdM-ATtHOFDqMgX-I3Cm9l43IeVW_U1-B7n_skEhv58"/>
+<div class="absolute top-4 right-4 bg-primary/80 text-white p-4 rounded-full">
+<span class="material-symbols-outlined text-4xl">
+                                    cloud
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">New York</h3>
+<p class="text-subtle-light dark:text-subtle-dark mb-4">Cloudy</p>
+<p class="text-4xl font-bold text-primary">18°C</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300">
+<div class="relative">
+<img alt="Rainy day in London" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu5A3dRDk80Ctc_cvJFcE5h7NIYsmszN88lgkByvBVBYXClmohZ4mcRgCVOpZdk41sFVGeL4sdnm5XrdoOAFFV3xfqUkC3Om0BIBd6Zpfsc16ahnSpqGV0JTl_2YlxTjJ8SaKvU_7bk1DYUEafx7xHrREoES7vtU3MsJQzlCDnlvIFbQpS3d7CeAEWkCfMGGE1b0hGR-SBFKlWTYXzQ2zhMO-51ZipDXrr2-0_H4oAUVXUWordhqLrF38ckbPoHInEe7XheeMTZMI"/>
+<div class="absolute top-4 right-4 bg-primary/80 text-white p-4 rounded-full">
+<span class="material-symbols-outlined text-4xl">
+                                    rainy
+                                </span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">London</h3>
+<p class="text-subtle-light dark:text-subtle-dark mb-4">Rainy</p>
+<p class="text-4xl font-bold text-primary">15°C</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16">
+<h2 class="text-3xl font-bold mb-6 text-center">Türkiye Hava Durumu</h2>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-sm p-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="flex items-center justify-between p-4 rounded-lg hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">
+                                            partly_cloudy_day
+                                        </span>
+<div>
+<p class="font-bold">İstanbul</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Parçalı Bulutlu</p>
+</div>
+</div>
+<p class="text-2xl font-bold text-primary">19°C</p>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">
+                                            light_mode
+                                        </span>
+<div>
+<p class="font-bold">Ankara</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Güneşli</p>
+</div>
+</div>
+<p class="text-2xl font-bold text-primary">24°C</p>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">
+                                            light_mode
+                                        </span>
+<div>
+<p class="font-bold">İzmir</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Güneşli</p>
+</div>
+</div>
+<p class="text-2xl font-bold text-primary">26°C</p>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">
+                                            cloud
+                                        </span>
+<div>
+<p class="font-bold">Bursa</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Bulutlu</p>
+</div>
+</div>
+<p class="text-2xl font-bold text-primary">21°C</p>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">
+                                            light_mode
+                                        </span>
+<div>
+<p class="font-bold">Antalya</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Güneşli</p>
+</div>
+</div>
+<p class="text-2xl font-bold text-primary">28°C</p>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">
+                                            rainy
+                                        </span>
+<div>
+<p class="font-bold">Trabzon</p>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Yağmurlu</p>
+</div>
+</div>
+<p class="text-2xl font-bold text-primary">17°C</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-surface-light dark:bg-surface-dark mt-16 py-6">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-subtle-light dark:text-subtle-dark">
+<p>© 2024 WeatherWise. All rights reserved.</p>
+</div>
+</footer>
+</div>
+
+</body></html>
